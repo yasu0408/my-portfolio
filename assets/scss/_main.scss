@@ -1,0 +1,432 @@
+@use "config/variables" as v;
+@use "mixin" as m;
+
+///////////*ヘッダー*//////////
+.header {
+  height: 80px;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  color: v.$white;
+  z-index: 99;
+  transition: background-color 1s ease-in-out;
+
+  &.scrolled {
+    background-color: #4a4a4a;
+    transition: background-color 1s ease-in-out;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    max-width: none;
+    height: 100%;
+  }
+  &_logo {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    .logo {
+      display: block;
+      img {
+        height: 40px;
+      }
+    }
+  }
+  &_burger {
+    display: none;
+    @include m.mq(tab) {
+      display: inline;
+      background: url(../img/burger.svg) no-repeat center center;
+      height: 48px;
+      width: 48px;
+      margin-left: auto;
+      border-radius: 4px;
+      position: relative;
+      z-index: 2;
+      &:hover {
+        background-color: #bcbcbc;
+        cursor: pointer;
+      }
+      &.is-active {
+        background: url(../img/close.svg) no-repeat center center;
+      }
+    }
+  }
+  &_nav {
+    margin-left: auto;
+    @include m.mq(tab) {
+      display: none;
+      z-index: 1;
+      &.is-active {
+        display: flex;
+        position: fixed;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: #434343;
+        ul {
+          flex-direction: column;
+          justify-content: center;
+          li {
+            margin: 0 0 40px 0;
+          }
+        }
+      }
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      li + li {
+        margin-left: 48px;
+      }
+    }
+  }
+}
+///////////*ファーストビュー*//////////
+.first_view {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(../img/fv-bgi.jpg) no-repeat center center;
+  background-size: cover;
+  height: 640px;
+  color: v.$white;
+  @include m.mq(tab) {
+    height: 480px;
+  }
+  @include m.mq(sp) {
+    height: 240px;
+  }
+  .container {
+    max-width: none;
+    width: 50%;
+    height: 640px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(50%);
+    @include m.mq(tab) {
+      height: 480px;
+      transform: none;
+    }
+    @include m.mq(sp) {
+      height: 240px;
+      transform: translateY(20px);
+    }
+  }
+  &_title {
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+    font-weight: bold;
+    font-family: v.$jap_font;
+    text-shadow: 0 0 8px #333333;
+    @include m.mq(tab) {
+      font-size: 1.5rem;
+    }
+  }
+  &_text {
+    font-size: 1.5rem;
+    font-size: bold;
+    font-family: v.$jap_font;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+    margin: 24px 0;
+    white-space: nowrap;
+    text-shadow: 0 0 8px #333333;
+    @include m.mq(tab) {
+      font-size: 1.2rem;
+      margin: 12px 0;
+    }
+    @include m.mq(sp) {
+      font-size: 0.8rem;
+      margin: 8px 0;
+    }
+  }
+}
+////////*アバウト*/////////
+.about {
+  &_heading {
+    @include m.section_heading;
+  }
+  &_body {
+    background: url(../img/about-bgi.png) no-repeat center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include m.mq(tab) {
+      background: none;
+    }
+  }
+  &_image {
+    width: 20%;
+    @include m.mq(tab) {
+      display: none;
+    }
+  }
+  &_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    .text {
+      margin: 16px 0;
+    }
+  }
+}
+////////*スキル*/////////
+.skill {
+  &_heading {
+    @include m.section_heading;
+  }
+  &_body {
+    @include m.grid_3column;
+    @include m.mq(tab) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+  &_card {
+    margin: 0 auto;
+    padding: 16px;
+    @include m.icon;
+    @include m.card_color;
+    @include m.mq(tab) {
+      width: 80%;
+    }
+  }
+}
+
+///////////*ワークス*//////////
+.works {
+  &_heading {
+    @include m.section_heading;
+  }
+  &_body {
+    @include m.grid_3column;
+    @include m.mq(tab) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+  &_card {
+    margin: 0 auto;
+    &:hover {
+      opacity: 0.6;
+    }
+    .text {
+      text-align: center;
+    }
+  }
+  &_img {
+    box-shadow: 4px 4px 4px #d1d1d1;
+    &:hover {
+      box-shadow: none;
+      transform: translate(4px, 4px);
+    }
+  }
+  &_cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  @include m.modals;
+}
+
+///////*プラクティス*/////////
+.practice {
+  &_heading {
+    @include m.section_heading;
+  }
+  &_body {
+    @include m.grid_4column;
+    @include m.mq(tab) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+  &_card {
+    margin: 0 auto;
+    :hover {
+      opacity: 0.6;
+    }
+    .text {
+      text-align: center;
+    }
+  }
+  &_img {
+    box-shadow: 4px 4px 4px #d1d1d1;
+    :hover {
+      box-shadow: none;
+      transform: translate(4px, 4px);
+    }
+  }
+  @include m.modals;
+}
+
+///////*ストレングス*//////////
+.strength {
+  &_heading {
+    @include m.section_heading;
+  }
+  &_body {
+    @include m.grid_3column;
+    @include m.mq(tab) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+  &_card {
+    margin: 0 auto;
+    padding: 16px;
+    @include m.icon;
+    @include m.card_color;
+  }
+}
+/////////*コンタクト*/////////
+.contact {
+  &_heading {
+    @include m.section_heading;
+  }
+  &_body {
+    display: flex;
+    justify-content: center;
+  }
+  &_cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+}
+////////*フッター*//////////
+.footer {
+  height: 100px;
+  font-weight: bold;
+  color: v.$white;
+  background-color: v.$dark_grey;
+  .container {
+    max-width: none;
+    height: 80px;
+  }
+  .copyright {
+    height: 20px;
+    font-size: 0.6rem;
+    color: #fff;
+    text-align: center;
+  }
+  &_body {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 8px;
+  }
+  &_logo {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    .logo {
+      display: block;
+      img {
+        height: 40px;
+        @include m.mq(tab) {
+          height: 20px;
+        }
+        @include m.mq(sp) {
+          display: none;
+        }
+      }
+    }
+  }
+  &_nav {
+    margin-left: auto;
+    @include m.mq(tab) {
+      font-size: 0.8rem;
+    }
+    @include m.mq(sp) {
+      font-size: 0.6rem;
+      margin: 0 auto;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      li + li {
+        margin-left: 48px;
+        @include m.mq(tab) {
+          margin-left: 24px;
+        }
+        @include m.mq(tab) {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+}
+.to_top {
+  display: inline-block;
+  background: url(../img/to_top.svg) no-repeat center center;
+  height: 48px;
+  width: 48px;
+  transform: translateY(-100px);
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 1s ease;
+  &.scrolled {
+    transition: opacity 1s ease;
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+//////*下層ページのコンタクトページ*//////////
+.contact_page {
+  &_first_view {
+    height: 320px;
+    .container {
+      width: 100%;
+      height: 320px;
+      transform: none;
+    }
+  }
+  &_heading {
+    @include m.section_heading;
+  }
+}
+
+.mw_wp_form {
+  p:first-of-type {
+    margin-bottom: 16px;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  input,
+  textarea {
+    border: 1px solid v.$grey;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 24px;
+    padding: 8px;
+  }
+  input[type="submit"] {
+    display: block;
+    margin: 0 auto 48px auto;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    color: v.$white;
+    border: none;
+    background-color: v.$red;
+    &.back_btn {
+      background-color: rgb(55, 68, 255);
+    }
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

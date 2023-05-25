@@ -1,0 +1,130 @@
+@use "config/variables" as v;
+
+/////////*Break Point*/////////////
+
+$break_point: (
+  tab: "screen and (max-width: 768px)",
+  sp: "screen and (max-width: 480px)",
+);
+
+@mixin mq($bp) {
+  @media #{map-get($break_point, $bp)} {
+    @content;
+  }
+}
+
+@mixin section_heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto 4px auto;
+  padding-left: 4px;
+  border-left: 4px v.$red solid;
+  .text {
+    font-weight: bold;
+  }
+}
+
+@mixin icon {
+  .icon_container {
+    display: flex;
+    margin: 16px 0;
+    .icon_box {
+      background-color: #fff;
+      height: 32px;
+      width: 32px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 4px;
+    }
+  }
+}
+
+@mixin card_color {
+  &:nth-child(1) {
+    background-color: v.$dark_grey;
+    color: v.$white;
+    .title {
+      color: v.$white;
+    }
+  }
+  &:nth-child(2) {
+    background-color: v.$grey;
+    color: v.$white;
+    .title {
+      color: v.$white;
+    }
+  }
+  &:nth-child(3) {
+    background-color: v.$light_grey;
+  }
+}
+
+@mixin grid_3column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+@mixin grid_4column {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+@mixin modals {
+  .modal {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: none;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    &_content {
+      width: 80%;
+      height: auto;
+      margin: 100px auto;
+      padding: 20px;
+      border: 1px solid #888888;
+      background-color: #ffffff;
+    }
+    &_top {
+      .close_btn {
+        font-size: 48px;
+        font-weight: bold;
+        float: right;
+        cursor: pointer;
+        color: #888888;
+      }
+    }
+    &_container {
+      img {
+        width: 100%;
+        margin-bottom: 16px;
+      }
+      .sub_title {
+        margin-bottom: 4px;
+      }
+      .modal_text_container {
+        margin-bottom: 16px;
+      }
+      .modal_link {
+        color: v.$blue;
+        display: inline-block;
+        margin-bottom: 16px;
+        font-size: 0.875rem;
+        font-family: v.$jap_font;
+      }
+    }
+  }
+}

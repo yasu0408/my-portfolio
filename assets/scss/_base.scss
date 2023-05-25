@@ -1,0 +1,97 @@
+@use "config/fonts" as f;
+@use "config/variables" as v;
+@use "mixin" as m;
+
+// base style
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: v.$base_font;
+  font-size: 1rem;
+  color: v.$base_font_color;
+  background-color: v.$base_color;
+  font-weight: 400;
+  line-height: 1;
+}
+
+a {
+  text-decoration: none;
+  color: v.$white;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.button {
+  background-color: v.$btn_color;
+  color: v.$btn_font_color;
+  padding: 16px 24px;
+  display: inline-block;
+  border-radius: 100px;
+  box-shadow: 1px 5px 0 #e01313;
+  &:hover {
+    box-shadow: none;
+    transform: translate(1px, 5px);
+  }
+  @include m.mq(sp) {
+    padding: 12px 20px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+}
+
+.text {
+  font-size: 0.875rem;
+  font-weight: normal;
+  font-family: v.$jap_font;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+  @include m.mq(sp) {
+    font-size: 0.625rem;
+  }
+}
+
+.sub_title {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: v.$black;
+  @include m.mq(sp) {
+    font-size: 0.8rem;
+  }
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: v.$black;
+  @include m.mq(sp) {
+    font-size: 1rem;
+  }
+}
+
+section + section {
+  margin-bottom: 48px;
+  @include m.mq(sp) {
+    margin-bottom: 24px;
+  }
+}
+
+.mb_16 {
+  margin-bottom: 16px;
+}
