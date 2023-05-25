@@ -8,7 +8,7 @@
         </div>
         <nav class="footer_nav">
           <ul>
-            <li class="header_link"><a target="_blank" href="<?php echo esc_url('https://github.com/yasu0408/'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/git-white.svg" alt="icon-git"></a></li>
+            <li class="header_link"><a target="_blank" href="<?php echo esc_url('https://github.com/yasu0408/my-portfolio'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/git-white.svg" alt="icon-git"></a></li>
             <li><a class="to_about" href="<?php echo esc_url(home_url('#about')); ?>">About</a></li>
             <li><a class="to_skill" href="<?php echo esc_url(home_url('#skill')); ?>">Skill</a></li>
             <li><a class="to_works" href="<?php echo esc_url(home_url('#works')); ?>">Works</a></li>
