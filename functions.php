@@ -4,6 +4,12 @@ function my_theme_support() {
   add_theme_support('menus');
   add_theme_support('post-thumbnails');
 }
+
+add_filter ( 'get_site_icon_url', 'my_site_icon_url' );
+function my_site_icon_url( $url ) {
+  return get_theme_file_uri ( '/assets/img/favicon.ico' );
+}
+
 add_action('after_setup_theme','my_theme_support');
 
 
@@ -16,4 +22,3 @@ function my_theme_scripts() {
   wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/a145c2daf4.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_scripts' );
-

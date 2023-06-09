@@ -48,7 +48,7 @@
             <div class="modal_container">
               <img class="img" src="<?php echo get_template_directory_uri(); ?>/assets/img/poster.jpg" alt="poster">
               <p class="sub_title">イベントの告知ポスター</p>
-              <p class="text mb_16">児童向けのエベントの告知ポスターを想定</p>
+              <p class="text mb_16">児童向けのイベントの告知ポスターを想定</p>
               <p class="sub_title">制作時間</p>
               <p class="text mb_16">4時間</p>
               <p class="sub_title">感想</p>

@@ -30,7 +30,7 @@
         </div>
         <div class="about_text">
           <p class="title">仕事求む！</p>
-          <p class="text">Webデザイナーを目指して就職活動しています小川 泰寛(おがわやすひろ)と申します。<span style="font-size:8px ;">※現姓村上</span><br>35歳で未経験ですが、年齢は数字に過ぎません。私が持つ情熱や意欲で新しい職場に貢献します。ご興味あればご連絡ください。3日以内に返信させていただきます。</p>
+          <p class="text">Webデザイナーとして就職活動しています小川 泰寛(おがわやすひろ)と申します。<span style="font-size:8px ;">※現姓村上</span><br>35歳とアラフォーですが、年齢は数字に過ぎません。私が持つ情熱や意欲で新しい職場に貢献します。ご興味あればご連絡ください。3日以内に返信させていただきます。</p>
           <a class="button" href="<?php echo esc_url(home_url('/contact')); ?>">採用したい・興味がある</a>
         </div>
       </div>
